@@ -1,0 +1,20 @@
+How do we install maven: 
+Maven requires Java to be install first. 
+sudo apt update
+sudo apt install default-jdk
+cd /opt
+wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz 
+sudo tar xf apache-maven-*.tar.gz
+sudo ln -s /opt/apache-maven-3.8.5 /opt/maven
+3. Setup environment variables #
+sudo vi /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/lib/jvm/default-java
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+Make the script executable with chmod:
+sudo chmod +x /etc/profile.d/maven.sh
+sudo chmod +x /etc/profile.d/maven.sh
+source /etc/profile.d/maven.sh
+4. Verify the installation:
+mvn -version
