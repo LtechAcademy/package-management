@@ -13,8 +13,7 @@ export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 Make the script executable with chmod:
-sudo chmod +x /etc/profile.d/maven.sh
-sudo chmod +x /etc/profile.d/maven.sh
+sudo chmod +x /etc/profile.d/
 source /etc/profile.d/maven.sh
 4. Verify the installation:
 mvn -version
