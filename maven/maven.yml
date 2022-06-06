@@ -1,0 +1,227 @@
+Build Tools:  
+===========
+SDLC
+Used to create packages for deployment  -- Tomcat
+
+JAVA
+----
+	ANt  ---- build.xml
+	Maven  --- pom.xml
+	Gradle  -- build.gradle
+
+.Net
+----
+	Nant
+	MSBuild
+
+JAVASCRIPT
+-----------
+	Gulp
+	Grunt
+
+Python
+-------
+	PyBuilder
+
+Ruby
+----
+	Rake
+
+Maven Build Tools:
+-----------------
+https://maven.apache.org/download.cgi
+
+MAVEN is an open source Java BASED Build APPLICATION:
+
+Free - software is given for free without source code
+Open source - implying both software and the source code are freely available.     
+You can download the source code and develop on the existing features
+
+Build means: compiling and creating packages from codes.
+    Hello.java
+javac Hello.java  ---> 
+    where Hello.java is the src code with java extension
+    where javac is the command to complie java classes
+    This will generate byte code that jvm can understand and do a build
+    Hello.Class --> Byte code
+    
+    touch test.sh
+    inode 
+    
+java hello --> will do a build from the java classes
+  
+Java Applications:
+Using java, we can develop:
+--------------------------
+Standalone Applications – jar  Java Archieve
+    contains only java classes
+    jar = .classfiles
+    maven-stanalone-application.jar
+    
+Web Applications  – .war --- web Archieve
+    Java code + web content (HTML, CSS, JS, images…, XML)
+    Backend code   - frontend code
+    maven-web-application.war
+
+Enterprise applications – .ear – Enterprise Archieve
+    Multiple Modules
+    Java code + web content 
+    Ear =  war(s) + jar(s)
+    Banking applications
+    maven-web-application.war
+    maven-enterprise-application.ear
+    
+
+IQ: What projects are you supporting? Java based projects.
+    We can compile java code with; javac.
+    javac  - convert source code to java code
+    Hello.java  -  source code
+    Hello.class - Byte code created by Java Virtual Machine
+
+Based on your project we going to create multiple jar war or ear:
+
+Maven installations:
+--------------------
+Maven 3.6.3  -- > Java JDK 1.8 or Java 8
+    Source code 
+    Unit Test Cases  -- 
+    build scripts  -- pom.xml
+    
+JDK --> Java Development Kit
+    Open JDK
+    Oracle JDK
+    IBM JDK
+     
+JRE --> Java Runtime Environment
+
+MHD:
+    bin: 
+        mvn package
+    conf:
+        settings.xml
+    lib:
+
+    boot: files needed when executing mvn commands
+
+MLR: MAVEN LOCAL REPO
+    .m2/repository
+    
+Sample Contents in pom.xml:
+
+    XML  --> Extensible Markup Language
+
+
+      class23
+      echo masterclass  # shell script
+      print('masterclass')
+
+      <class23>masterclass<class23/>
+
+
+    HTML  - -> Pre-defined tags
+
+    <title>Page Title</title>
+    <h1>Simon</h1>
+    <h2>Simon</h2>
+    <title>Page Title</title>
+    
+
+
+Explain the maven lifecycle - IQ:
+3 lifecycles: Clean, site and default
+LC:                          Goal
+--                           ----
+Clean - 
+  clean goal:
+    It will delete the previous build artifacts (.jar, war. ear)
+
+Site/Swagger - 
+  site Goal:
+    Create documents for java classes  = hello.class = byte code = jvm 
+    
+default:
+  Goals
+    mvn validate: It will validate the project structure and resource files
+    mvn compile : It will compile all java classes and test cases (JUnit)
+    mvn test    : It will run the unit test cases
+    mvn package : It will create packages or build artifacts in target directory - jar or war or ear
+    mvn install : It will store the build artifacts (jar, war, ear) in MAVEN LOCAL REPO. MLR 
+    mvn deploy  : It will store the build artifacts (jar, war, ear) in MAVEN remote REPO. NEXUS
+    
+    mvn sonar:sonar
+Unit test cases are written by developers to test the source code quality:
+
+    JAVA  --> JUnit
+    .Net  --> NUnint
+    C++  --> CPPUnit
+
+# name.sh
+echo "What is your name"
+read name
+echo "Your name is $name"
+
+What is the difference b/w mvn package, install and deploy?  
+ 
+ git clone https://github.com/mylandmarktechs/maven-standalone-application
+
+  src               = codes 
+  build script      = pom.xml 
+  unit test classes = 
+
+    mvn clean package
+
+
+  .jar  = maven-standalone-application
+  .war  = maven-web-application
+  .ear  = maven-enterprise-application
+
+  mvn install  
+      .m2/repository 
+
+  MAVEN LOCAL repository 
+   mkdir /tmp/mlrepo 
+   settings.xml 
+   vi /opt/maven/conf/settings.xml
+
+  // xml single line comment
+  
+  <!--
+    xml multi-line comment
+  -->
+
+    <!-- xml-multiline-comment -->
+      
+   | Default: ${user.home}/.m2/repository
+  <localRepository>/path/to/local/repo</localRepository>
+  -->
+  
+  <localRepository>/tmp/mlrepo</localRepository>
+
+   <localRepository>/tmp/local</localRepository>
+
+
+
+   mvn package  
+
+   git clone https://github.com/mylandmarktechs/maven-web-app.git
+
+   written  = 700 unit test cases 
+
+   mvn package   = 697 passes  and 3 fails  
+   
+   mvn package -DskipTests 
+
+   mvn package -Dmaven.test.skip=true
+
+git clone https://github.com/mylandmarktechs/maven-web-app.git
+
+   git clone https://github.com/mylandmarktechs/maven-enterprise-application.git 
+ 
+   mvn package -f pom.xml or mvn package 
+
+   mvn package -f ebay.xml 
+
+    mvn  package -pl MavenEnterpriseApp-web
+    
+    mvn  package -P profilename  
+

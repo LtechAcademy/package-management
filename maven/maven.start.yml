@@ -1,0 +1,95 @@
+DevOps Program.
+
+sdlc : software development lifecycle.
+an example of software is :
+whatsap
+.................................
+explore.world
+app - whatsap.
+features:
+calls
+videos.
+chats 
+imojies
+profile pictures.
+........................
+3 developers : they are responsible for writing the aplication code.
+source code . (src)
+dev.1
+dev.2
+dev.3  commiting to github (source code management)
+The code is made of up:
+application codes
+Unit Test Cases. 
+
+...........................
+WE HAVE THE SOURCE CODES : BUT WHAT NEXT.
+source code for jellof rice:
+oil
+rice.
+tomatoes.
+maggi.
+crayfish
+fresh fish
+meat.
+package - pot-gas/heat...
+rice/ jellof rice.
+MAVEN : BUILD TOOLS / PACKAGE MANAGE. 
+WHAT IS THE END PRODUCT OF MAVEN BUILDS:
+standalone application 
+jar
+web applications (WAR)
+EAR (Enterprice application)
+what other tools tools can be used to build:
+ant
+gradle 
+............................
+at Landmark/Lion Technologies...
+we maven.
+.......................
+what type applications does maven:
+maven supports java based applications. 
+Features of an application:
+sources.
+unit test cases.
+...................
+Types of tests:
+Unit Test cases. 
+Integration testing.
+performace testing.
+load testing.
+maven life cycle :
+VALIDATE
+COMPILE
+TEST 
+PACKAGE (WAR. EAR. JAR)
+INSTALL....
+DEPLOY.....
+maven comands:
+mvn clean package :  build a new package and deletes the exisiting.
+mvn deploy :  deploy the package to tomcot/nexus/maven central repository.
+Maven repository:
+the whatsap app is build and then is stored in a local computer.
+dev.1....
+what happens if his computer is stolen? 
+local repository (found on our computer)
+central repository ;: just like github. (nexus repository)
+POM.XML ....
+How do we install maven: 
+Maven requires Java to be install first. 
+sudo apt update
+sudo apt install defau
+cd /opt
+wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz 
+sudo tar xf apache-maven-*.tar.gz
+sudo ln -s /opt/apache-maven-3.8.5 /opt/maven
+3. Setup environment variables #
+sudo vi /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/lib/jvm/default-java
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+Make the script executable with chmod:
+sudo chmod +x /etc/profile.d/maven.sh
+4. Verify the installation:
+mvn -version
