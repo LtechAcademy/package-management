@@ -1,0 +1,216 @@
+How do you deploy a web, enterprise and a standalone-application?
+
+maven-standalone-application
+    .jar
+
+    java -jar packageName.jar
+
+    java -jar user-banking.jar 
+      java JDK 1.7+
+
+maven-web-application
+    .war
+    Tomcat
+    JBoss/WildFly
+
+maven-enterprise-application
+    .ear
+    JBoss/WildFly
+    
+Application Server: 
+
+  IBM WebSphere Application Server (WAS)  --> IBM
+  
+  Apache Tomcat   --> Apache  --> OS
+  
+  JBoss/WildFly   --> Redhat/IBM 
+    1.x to 7.x --> JBoss
+    from 8.x--> WildFly
+         versioning  
+    git branch and git tag 
+
+  WebLogic --> Oracle  
+
+What is the d/f b/w JBoss/WildFly and Tomcat? IQ:
+
+Tomcat Installation:
+---------------------
+ Java is the pre-requisit fot Tomcat 
+ THD: Tomcat Home Directory 
+ $HOME_TOMCAT:
+ bin:
+    startup.sh    LINX/MacOS
+    startup.bat   ----> WINDOWS OS
+    shutdown.sh
+    shutdown.bat     ----> WINDOWS OS
+    catalina.sh start
+    catalina.sh stop | start | restart | status
+    version.sh
+    version.bat
+ 
+ conf:
+    server.xml
+       autoDeploy
+    tomcat-user.xml
+    
+ lib:
+    contain all the jar files
+ 
+ logs:
+    catalina.out
+    host-manager.log
+    What are the log files available in the log dir? IQ:
+    
+ webapps:  where deployments are effected in Tomcat
+           default deployment Directory in Tomcat 
+    war files
+        maven-web-app.war  # mvn package 
+        maven-web-app
+        cp *.war /webapps
+    others
+    
+ work:
+    working related files
+    
+ temp:   
+ sudo sh /opt/tomcat/bin/catalina.sh status 
+
+   ps -ef | grep tomcat 
+
+
+  54.163.156.108:8080
+  
+  8080 
+
+
+ Tomcat server configuration:
+  vi /webapps/manager/META-INF/context.xml 
+  vi /webapps/host-manager/META-INF/context.xml  
+  
+ Tomcat server configuration:
+  vi /opt/tomcat/webapps/manager/META-INF/context.xml
+
+  <!--
+
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+-->
+ 
+  vi /opt/tomcat/webapps/host-manager/META-INF/context.xml CD
+  
+
+  vi /opt/tomcat/conf/tomcat-users.xml  # to add user
+
+  
+	<user username="LION TECHNOLOGIES" password="admin123" roles="manager-gui,admin-gui"/> 
+
+  <user username="Landmark" password="admin123" roles="manager-gui,admin-gui"/>
+
+  scp fileName.war ec2-user@172.31.87.238:/opt/tomcat/webapps/
+
+  scp maven-web-app.war ec2-user@172.31.87.238:/opt/tomcat/webapps/
+
+  su 
+
+  cp maven-web-app.war /opt/tomcat/webapps/
+
+   h1 h2 h3 h4 h5 h6 
+
+
+   172.31.87.238   
+  
+  What is default port no for Tomcat and how can it be changed? IQ:
+  
+  52.201.210.106:7777/maven-web-app
+     
+  Tomcat uses port 8080 and 8443 for HTTP and HTTPS traffic requests respectively. 
+  
+  Tomcat default port no: 8080
+
+   ADDRESS BINDING 
+
+  netstat -tlpn
+  
+  vi /opt/tomcat/conf/server.xml  # change port number
+  
+  Tomcat default port no: 8080 --> 8888 -- > 800
+  
+  Port no:
+    80  -- http
+    443 -- https
+    8080 -- Jenkins / Tomcat  / JBoss
+    0-1024 -- Reserve ports
+    1025-65535  
+    465 --- SMTP
+    587  --- SMTP
+    22   --- ssh
+    23   -- ftp
+ 
+ scp  target/*.war  ec2-user@IP:/tmp
+ 
+ 
+  scp -i key.pem target/*.war  ec2-user@52.201.210.106:/tmp
+     
+ 
+  ssh -i 22a.pem" ec2-user@3.238.121.3  
+ 
+  
+Who's in charge of apps deployment?
+  MiddleWare Admins 
+
+How are hotfixes or hot deployments managed in tomcat? Reload
+
+server.xml
+    change port no.
+    
+    <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+     
+
+ <Host name="localhost"  appBase="ebayapps"
+ 
+ unpackWARs="true" autoDeploy="true">
+
+
+How to improve tomcat server performance?
+Multiple deployments will reduce tomcat server performance.
+  1GB = 1000MB 
+        64MB 
+Increase the heap Size 
+    64MB
+    256MB
+
+Install http
+
+  /var/wwww/html
+  
+Firewall: 
+    Security Groups is firewall at the EC2 instance level
+      52.201.210.106:8080
+      
+Install apache web server:
+    sudo yum -y install httpd
+    sudo systemctl start httpd
+    sudo enable httpd
+    
+    52.201.210.:80
+    52.201.210.106
+    
+    cd /var/wwww/html
+    
+    sudo vi /var/www/html/index.html
+    
+    Welcome to LION TECHNOLOGIES
+    
+    <h1>Welcome to LION TECHNOLOGIES</h1>
+    
+    <h2>Welcome to LION TECHNOLOGIES</h2>
+    
+    <h3>Welcome to LION TECHNOLOGIES</h3>
+    
+    <h1>Jesus is in our midst</h1>
+    '
+    '
+
+    DEV 
+    STAGE 
+    PROD
