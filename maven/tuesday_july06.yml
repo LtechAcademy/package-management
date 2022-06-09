@@ -1,0 +1,20 @@
+Installing Tomcat. 
+configure tomcat.
+maven-tomcat deployment. 
+tomcat : monolithetic.
+what is a monolithic application.
+if one features/portation of the application has an issue. 
+then, the entire application is affected. 
+Beside maven:
+There are other build tools:
+  MS BUILD
+  Maven.
+  Gradle.
+  ................................
+  Maven : is a build tool for java based applications. 
+  Maven depends on Java. 
+  wihtout java ... maven cant not functiion. 
+  .............................................
+  summary:
+  tomcat = deployment tool for our  java based application. 
+  
