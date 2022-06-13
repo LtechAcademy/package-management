@@ -1,6 +1,6 @@
-#  **<span style="color:green">Landmark Technologies.</span>**
+#  **<span style="color:green">LION TECH ACADEMY.</span>**
 ### **<span style="color:green">Contacts: +1437 215 2483<br> WebSite : <http://mylandmarktech.com/></span>**
-### **Email: mylandmarktech@gmail.com**
+### **Email: info@liontechnologysolutions.com**
 
 
 
@@ -42,4 +42,3 @@ sudo ln -s /opt/tomcat9/bin/startup.sh /usr/bin/starttomcat
 sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
 sudo yum update -y
 starttomcat
-```
