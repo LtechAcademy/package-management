@@ -1,11 +1,13 @@
-How do we install maven: 
+How do we install maven 3.8.6
 Maven requires Java to be install first. 
 sudo apt update
-sudo apt install default-jdk
+sudo apt install default-jdk   #this installs Java , a dependencyh for maven
+#varify installation of java :  
+java -version
 cd /opt
-wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz 
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
 sudo tar xf apache-maven-*.tar.gz
-sudo ln -s /opt/apache-maven-3.8.5 /opt/maven
+sudo ln -s /opt/apache-maven-3.8.6 /opt/maven
 3. Setup environment variables #
 sudo vi /etc/profile.d/maven.sh
 export JAVA_HOME=/usr/lib/jvm/default-java
