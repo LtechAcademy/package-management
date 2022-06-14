@@ -1,74 +1,46 @@
-#!/bin/bash
-# Install and start nexus as a service 
-# This script works on RHEL 7 & 8 OS 
-# Your server must have atleast 4GB of RAM
-# become the root / admin user via: sudo su -
-#1. Create nexus user to manage the nexus
-# As a good security practice, Nexus is not advised to run nexus service as a root user, so create a new user called nexus and grant sudo access to manage nexus services as follows.
-
-useradd nexus
-
-#4 Give sudo access to nexus user
-
-sudo echo "nexus ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/nexus
-sudo su - sonar
-
+How to Install Nexus Repository on Ubuntu 20.04 LTS:
+update the system packages:
+ sudo apt-get update
+ #1: Install OpenJDK 1.8 on Ubuntu
+ 
+ sudo apt install openjdk-8-jdk  #if you have maven installed , please ignore
+#2: Download Nexus Repository Manager setup on Ubuntu 20.04 LTS
+Navigate to /opt directory
 cd /opt
-
-# 1.Install prerequisit: JAVA, git, unzip
-
-sudo yum install wget git nano unzip -y
-sudo yum install java-11-openjdk-devel java-1.8.0-openjdk-devel -y
-
-
-# 2. Download nexus software and extract it (unzip)
-
-sudo wget http://download.sonatype.com/nexus/3/nexus-3.15.2-01-unix.tar.gz 
-
-sudo tar -zxvf nexus-3.15.2-01-unix.tar.gz
-mv /opt/nexus-3.15.2-01 /opt/nexus
-
-
-#5 Change the owner and group permissions to /opt/nexus and /opt/sonatype-work directories.
-
-
+#Download the SonaType Nexus on Ubuntu using wget
+sudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+#3: Install Nexus Repository on Ubuntu 20.04 LTS
+#Extract the Nexus repository setup in /opt directory
+sudo tar -zxvf latest-unix.tar.gz
+#Rename the extracted Nexus setup folder to nexus
+sudo mv /opt/nexus-3.39.0-01 /opt/nexus
+#As security practice, not to run nexus service using root user, so lets create new user named nexus to run nexus service
+sudo adduser nexus  #this creates a user called nexus
+#add nexus to sudoers groups
+sudo echo "nexus ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/nexus
+#Give permission to nexus files and nexus directory to nexus user
 sudo chown -R nexus:nexus /opt/nexus
 sudo chown -R nexus:nexus /opt/sonatype-work
-sudo chmod -R 775 /opt/nexus
-sudo chmod -R 775 /opt/sonatype-work
-
-#6 Open /opt/nexus/bin/nexus.rc file and  uncomment run_as_user parameter and set as nexus user.
-
-vi /opt/nexus/bin/nexus.rc
+#To run nexus as service at boot time, open /opt/nexus/bin/nexus.rc file, uncomment it and add nexus user as shown below
+sudo vi /opt/nexus/bin/nexus.rc
 run_as_user="nexus"
+#Create softlink for nexus file:
+ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
+Login to nexus user:
+su - nexus
+#Start nexus:
+service nexus start
+#Check status of nexus:
+service nexus status
 
-#7 CONFIGURE NEXUS TO RUN AS A SERVICE 
+#5: Access Nexus Repository Web Interface
+ufw allow 8081/tcp
+localhost:8081
+Initial  user: admin 
+#password : run this command to get password:   cat /opt/sonatype-work/nexus3/admin.password
 
-sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
 
-#9 Enable and start the nexus services
-sudo systemctl enable nexus
-sudo systemctl start nexus
-sudo systemctl status nexus
-echo "end of nexus installation"
 
-=====================
-access nexus on the browser
-34.229.62.93:8081
-userName  --- ADMIN
-Password   ADMIN123
 
-<<Troubleshooting
----------------------
-nexus service is not starting?
 
-a)make sure  to change the ownership and group to /opt/nexus and /opt/sonatype-work directories and permissions (775) for nexus user.
-b)make sure you are trying to start nexus service AS nexus user.
-c)check java is installed or not using java -version command.
-d) check the nexus.log file which is availabe in  /opt/sonatype-work/nexus3/log  directory.
 
-Unable to access nexus URL?
--------------------------------------
-a)make sure port 8081 is opened in security groups in AWS ec2 instance.
-
-Troubleshooting

@@ -85,11 +85,15 @@ sudo tar xf apache-maven-*.tar.gz
 sudo ln -s /opt/apache-maven-3.8.5 /opt/maven
 3. Setup environment variables #
 sudo vi /etc/profile.d/maven.sh
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=/usr/bin/java
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 Make the script executable with chmod:
 sudo chmod +x /etc/profile.d/maven.sh
+source /etc/profile.d/maven.sh
 4. Verify the installation:
 mvn -version
+
+#setting maven_home:
+export PATH=$JAVA_HOME/jre/bin:$PATH
