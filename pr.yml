@@ -1,0 +1,9 @@
+Steps for creating a PR  (pull request).
+Modify the files or directories.
+run the following git commands:
+   git status 
+   git add (files)  .
+   git add . (add everying from the working area to the staging ready to be committed)
+   git branch [branch name] e.g git branch elvis-tomcat
+   git commit -m "added config files for tomcat"
+   git push origin elvis-tomcat
