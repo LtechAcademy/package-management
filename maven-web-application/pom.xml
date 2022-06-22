@@ -12,8 +12,8 @@
 	<description>Maven Web Project for Java Project</description>
 
 	<organization>
-		<name>Landmark Technologies</name>
-		<url>http://landmarktechnologies.com/</url>
+		<name>LION  Technologies</name>
+		<url>http://LION technologies.com/</url>
 	</organization>
 
 	<properties>
@@ -96,14 +96,14 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url> http://172.31.18.29:8081/repository/ebay-bts-releases/</url>
+	      <name>LION  Technologies Releases Nexus Repository</name>
+	      <url>http://localhost:8081/repository/vicky-release-app/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://100.24.52.91:4000/repository/ebay-bts-snapshot/</url>
+	      <name>LION  Technologies Snapshot Nexus Repository </name>
+	      <url>http://localhost:8081/repository/vicky-snaptshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
