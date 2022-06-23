@@ -12,7 +12,7 @@
 	<description>Maven Web Project for Java Project</description>
 
 	<organization>
-		<name>Landmark Technologies</name>
+		<name>Lion Technologies</name>
 		<url>http://landmarktechnologies.com/</url>
 	</organization>
 
@@ -96,14 +96,14 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url> http://172.31.18.29:8081/repository/ebay-bts-releases/</url>
+	      <name>Lion Technologies Releases Nexus Repository</name>
+	      <url> http://localhost:8081/repository/liontech_release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://100.24.52.91:4000/repository/ebay-bts-snapshot/</url>
+	      <name>Lion Technologies Snapshot Nexus Repository </name>
+	      <url>http://localhost:8081/repository/liontech-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
