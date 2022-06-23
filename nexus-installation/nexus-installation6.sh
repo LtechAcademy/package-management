@@ -34,13 +34,21 @@ service nexus start
 service nexus status
 
 #5: Access Nexus Repository Web Interface
-ufw allow 8081/tcp
+sudo ufw allow 22/tcp
 localhost:8081
 Initial  user: admin 
 #password : run this command to get password:   cat /opt/sonatype-work/nexus3/admin.password
+vi setting.xml 
 
 
 
+<server>
+<id>nexus</id>
+<username>admin</username>
+<password>Zion2020</password>
+</server>
+
+ tag name </settings> must match start tag name <servers> from line 111 (position: TEXT seen ...</servers>\r\n</settings>... @264:12)  @ /opt/maven/conf/settings.xml, line 264, column 12
 
 
 

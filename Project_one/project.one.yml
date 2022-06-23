@@ -1,0 +1,17 @@
+PROJECTS:
+NEXUS-MAVEN INTEGRATION PROJECT. 
+requirements:
+Please make sure you have the following requirements in place.
+Nexus service   is up and running. 
+{ensure that nexus is installed properly}
+You can access nexus on the broswer.
+localhost:8081
+
+..........................................................
+configurations:
+1. Acces your nexus on the web and create repositories for the deployment.
+2. edit Pom.xml file    (input the urls in the distribution management sections of the file) 
+3. edit the settings.xml file.  (authenticating with nexus)  #MAVEN -NEXUS INTERGRATIONS HAPPENS HERE. 
+now : lets buildls
+export JAVA_HOME=/usr/java/1.8.0_312
+export PATH=${PATH}:${JAVA_HOME}/bin
