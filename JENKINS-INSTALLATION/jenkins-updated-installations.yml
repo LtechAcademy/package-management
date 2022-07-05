@@ -1,0 +1,52 @@
+LION   TECH  MENTORING:
+  647-381-8836
+
+
+How to Install and Configure  Jenkins:
+  prereq:  Java. 
+
+First, add the repository key to the system:
+  a.   sudo wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+  b.   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  c.  sudo apt update
+  d.  sudo apt install jenkins
+
+  Enabling systemctl:
+     e.   sudo -b unshare --pid --fork --mount-proc /lib/systemd/systemd --system-unit=basic.target
+      f.  sudo -E nsenter --all -t $(pgrep -xo systemd) runuser -P -l $USER -c "exec $SHELL"
+  Step 2 — Starting Jenkins:
+   Let’s start Jenkins by using systemctl:
+    g. sudo systemctl start jenkins
+
+    h.  sudo systemctl status jenkins
+
+     
+
+
+Step 3 — Opening the Firewall:
+  i.   sudo ufw allow 8080
+  j.   sudo ufw allow OpenSSH
+  k.   sudo ufw enable
+  l    sudo ufw status
+  Step 4 — Setting Up Jenkins:
+   localhost:8080 
+In the terminal window, use the cat command to display the password:
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
