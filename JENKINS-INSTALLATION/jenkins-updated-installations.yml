@@ -11,7 +11,7 @@ First, add the repository key to the system:
   c.  sudo apt update
   d.  sudo apt install jenkins
 
-  Enabling systemctl:
+  Enabling systemctl: (ONLY WHEN RUNNING JENKINS ON WSL)
      e.   sudo -b unshare --pid --fork --mount-proc /lib/systemd/systemd --system-unit=basic.target
       f.  sudo -E nsenter --all -t $(pgrep -xo systemd) runuser -P -l $USER -c "exec $SHELL"
   Step 2 — Starting Jenkins:
