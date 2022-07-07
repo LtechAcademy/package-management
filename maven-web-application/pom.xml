@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>LION  Technologies Releases Nexus Repository</name>
-	      <url>http://localhost:8081/repository/vicky-release-app/</url>
+	      <url>http://35.183.206.222:8081/repository/liontech-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>LION  Technologies Snapshot Nexus Repository </name>
-	      <url>http://localhost:8081/repository/vicky-snaptshots/</url>
+	      <url>http://35.183.206.222:8081/repository/liontechn-snaptshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
